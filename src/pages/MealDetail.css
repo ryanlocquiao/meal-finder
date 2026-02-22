@@ -1,0 +1,31 @@
+.back-link {
+    display: inline-block;
+    margin-bottom: 2rem;
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+}
+
+.detail-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.detail-img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.instructions {
+    line-height: 1.6;
+    white-space: pre-wrap;
+}
+
+@media (min-width: 768px) {
+    .detail-content {
+        flex-direction: row;
+    }
+}
