@@ -1,10 +1,11 @@
-import { useParams, Link } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useFetch } from '../hooks/useFetch';
 import type { MealApiResponse } from '../types';
 import './MealDetail.css';
 
 export default function MealDetail() {
     const { id } = useParams<{ id: string }>();
+    const navigate = useNavigate();
     const baseUrl = import.meta.env.VITE_API_BASE_URL;
     const { data, loading, error } = useFetch<MealApiResponse>(`${baseUrl}/lookup.php?i=${id}`);
 
@@ -16,7 +17,7 @@ export default function MealDetail() {
 
     return (
         <div className="container detail-container">
-            <Link to="/" className="back-link">← Back to Search</Link>
+            <button onClick={() => navigate(-1)} className="back-link">← Back to Search</button>
 
             <h1>{meal.strMeal}</h1>
             <div className="detail-content">
